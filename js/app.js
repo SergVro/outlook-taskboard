@@ -131,7 +131,11 @@ tbApp.controller('taskboardController', function ($scope, GENERAL_CONFIG) {
 
             // sort tasks
             if (sort === undefined) { sort = "[Importance]"; }
-            tasks.Sort(sort, true);
+            var direction = true;
+            if (sort == "[Ordinal]") {
+                direction = false;
+            }
+            tasks.Sort(sort, direction);
 
             var count = tasks.Count;
             for (i = 1; i <= count; i++) {
@@ -146,7 +150,8 @@ tbApp.controller('taskboardController', function ($scope, GENERAL_CONFIG) {
                     notes: taskExcerpt(tasks(i).Body, GENERAL_CONFIG.TASKNOTE_EXCERPT),
                     status: taskStatus(tasks(i).Body),
                     oneNoteTaskID: getUserProp(tasks(i), "OneNoteTaskID"),
-                    oneNoteURL: getUserProp(tasks(i), "OneNoteURL")
+                    oneNoteURL: getUserProp(tasks(i), "OneNoteURL"),
+                    ordinal: tasks(i).Ordinal
                 });
             };
 
