@@ -14,7 +14,6 @@ var config_data = {
     'BACKLOG_FOLDER':       { Name: '', Title: 'BACKLOG', Limit: 0, Sort: "[Ordinal]", Restrict: "[Complete] = false", Owner: '' },
     'INPROGRESS_FOLDER': 	{ Name: 'InProgress', Title: 'IN PROGRESS', Limit: 5, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: ''},
     'NEXT_FOLDER': 			{ Name: 'Next', Title: 'NEXT', Limit: 0, Sort: "[DueDate][Importance]", Restrict: "[Complete] = false", Owner: ''},
-    'FOCUS_FOLDER': 		{ Name: 'Focus', Title: 'FOCUS', Limit: 0, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '' },
     'WAITING_FOLDER': 		{ Name: 'Waiting', Title: 'WAITING', Limit: 0, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '' },
     'COMPLETED_FOLDER':     { Name: 'Completed', Title: 'COMPLETED', Limit: 0, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '' },
 
@@ -24,7 +23,7 @@ var config_data = {
     'TASKNOTE_EXCERPT':		200,
 
     // Default task template
-    'TASK_TEMPLATE':        '\r\n\r\n### TODO:\r\n\r\n\r\n\r\n### STATUS:\r\n\r\n\r\n\r\n### ISSUES:\r\n\r\n\r\n\r\n### REFERENCE:\r\n\r\n\r\n\r\n'
+    'TASK_TEMPLATE':        ''
 
   }
 };
