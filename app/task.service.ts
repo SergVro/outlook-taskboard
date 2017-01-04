@@ -4,10 +4,6 @@ import {Task} from "./task";
 
 declare var ActiveXObject: any;
 
-interface External {
-    OutlookApplication: any;
-}
-
 @Injectable()
 export class TaskService {
 
@@ -58,7 +54,7 @@ export class TaskService {
                 duedate: new Date(tasks(i).DueDate),
                 sensitivity: tasks(i).Sensitivity,
                 categories: tasks(i).Categories,
-                notes: this.taskExcerpt(tasks(i).Body, 200),
+                notes: tasks(i).Body,
                 status: this.taskStatus(tasks(i).Body),
                 oneNoteTaskID: this.getUserProp(tasks(i), "OneNoteTaskID"),
                 oneNoteURL: this.getUserProp(tasks(i), "OneNoteURL")
@@ -92,24 +88,6 @@ export class TaskService {
         return folder;
     }
 
-
-    // grabs the summary part of the task until the first '###' text
-    // shortens the string by number of chars
-    // tries not to split words and adds ... at the end to give excerpt effect
-    taskExcerpt(str: string, limit: number) {
-        if ( str.indexOf('\r\n### ') > 0 ) {
-            str = str.substring( 0, str.indexOf('\r\n###'));
-        }
-        // remove empty lines
-        str = str.replace(/^(?=\n)$|^\s*|\s*$|\n\n+/gm, '');
-        if (str.length > limit) {
-            str = str.substring( 0, str.lastIndexOf( ' ', limit ) );
-            str = str.replace ('\r\n', '<br>');
-            //if (limit != 0) { str = str + "..." }
-        };
-        return str;
-    }
-
     taskStatus(str: string) {
         //str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
         if ( str.match(/### STATUS:([\s\S]*?)###/) ) {
@@ -133,5 +111,14 @@ export class TaskService {
             value = userprop.Value;
         }
         return value;
+    }
+
+    editTask(item: Task) {
+        let taskitem = this.outlookNS.GetItemFromID(item.entryID);
+        taskitem.Display();
+        // bind to taskitem write event on outlook and reload the page after the task is saved
+        eval("function taskitem::Write (bStat) {window.location.reload(); return true;}");
+        // bind to taskitem beforedelete event on outlook and reload the page after the task is deleted
+        eval("function taskitem::BeforeDelete (bStat) {window.location.reload(); return true;}");
     }
 }

@@ -1,14 +1,14 @@
 <div>
     <header class="panel-heading">
         {{ task.subject }}
-        <span ng-show="(task.duedate | date:'yyyy' ) != '4501'" ng-class="isOverdue(task.duedate)" class="pull-right">(Due: {{ task.duedate | date:'dd/MM/yy' }}) </span>
+        <span *ngIf="(task.duedate | date:'yyyy' ) != '4501'" [ngClass]="isOverdue(task.duedate)" class="pull-right">(Due: {{ task.duedate | date:'dd/MM/yy' }}) </span>
     </header>
-    <div class="panel-body"> {{ task.notes }} </div>
+    <div class="panel-body"> {{ taskExcerpt(task.notes, 200)}} </div>
     <footer class="text-right">
-        <div ng-if="(task.categories != '')" class="pull-left small"><span class="glyphicon glyphicon-tag"></span> {{ task.categories }}</div>
+        <div *ngIf="(task.categories && task.categories.length)" class="pull-left small"><span class="glyphicon glyphicon-tag"></span> {{ task.categories }}</div>
         <span class="btn-group btn-group-xs">
             <button class="btn btn-default btn-xs" aria-label="Edit" type="button" ng-click="editTask(task)"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
-            <button class="btn btn-default btn-xs" aria-label="Delete" type="button" ng-click="deleteTask(task,backlogTasks)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+            <button class="btn btn-default btn-xs" aria-label="Delete" type="button" ng-click="deleteTask(task)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
             <button ng-if="(task.oneNoteURL != '')"  class="btn btn-default btn-xs" aria-label="OneNote" type="button" ng-click="openOneNoteURL(task.oneNoteURL)"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></button>
         </span>
     </footer>

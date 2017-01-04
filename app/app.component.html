@@ -2,14 +2,14 @@
 
     <!-- filter bar -->
     <section id="filterbar" class="row">
-        <div filterbar ></div>
+        <div filterbar (searchChange)="updateSearch($event)"></div>
     </section>
 
     <!-- tasklanes section -->
     <section class="row" >
 
         <!-- lane #1 -->
-        <div lane *ngFor="let lane of lanes" [lane]="lane" ></div>
+        <div lane *ngFor="let lane of lanes" [lane]="lane" [search]="search" ></div>
         <!-- lane #1 -->
 
 

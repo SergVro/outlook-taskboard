@@ -2,10 +2,10 @@
     <header class="panel-heading">
         <h5>{{ lane.title }}
             <span class="pull-right">
-                <button class="btn btn-default btn-xs" aria-label="Add" type="button" (click)="addTask();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                <button *ngIf="( lane.limit == 0 || tasks.length < lane.limit )" class="btn btn-default btn-xs" aria-label="Add" type="button" (click)="addTask();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                 <span class="label label-info">{{ tasks.length }}</span>
             </span>
         </h5>
     </header>
-    <ul tasklist [currentLane]="lane" ui-sortable="sortableOptions" class="panel-body tasklist list-unstyled"></ul>
+    <ul tasklist [currentLane]="lane" [tasks]="filteredTasks" ui-sortable="sortableOptions" ></ul>
 </div>

@@ -3,7 +3,7 @@
     <div class="input-group-addon">
         <button class="btn btn-default btn-xs" aria-label="Refresh" type="button" onclick="window.location.reload();"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
     </div>
-    <div *ngIf="(search != undefined)" class="input-group-addon">
+    <div *ngIf="(hasSearchTerm())" class="input-group-addon">
         <button class="btn btn-default btn-xs" aria-label="Clear" type="button" (click)="resetSearch()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
     </div>
     <input type="text" name="search" [(ngModel)]="search" class="form-control" placeholder="Filter" />

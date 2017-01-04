@@ -1,11 +1,10 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {FormsModule} from "@angular/forms";
 
 import { AppComponent }  from './app.component';
 import { FilterbarComponent }  from './filterbar.component';
 import {LaneComponent} from "./lane.component";
-import {FormsModule} from "@angular/forms";
 import {TaskListComponent} from "./tasklist.component";
 import {TaskComponent} from "./task.component";
 import {LaneService} from "./lane.service";
