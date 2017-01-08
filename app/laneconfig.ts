@@ -5,4 +5,6 @@ export interface ILaneConfig {
     Sort: string;
     Restrict: string;
     Owner: string;
+
+    CanArchiveTask: boolean;
 }

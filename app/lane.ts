@@ -32,7 +32,7 @@ export class Lane {
         return this.laneConfig.Owner;
     }
 
-
-    addTask(task: Task) {
+    get CanArchiveTask(): boolean {
+        return this.laneConfig.CanArchiveTask;
     }
 }

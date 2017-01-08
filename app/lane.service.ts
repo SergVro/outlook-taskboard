@@ -6,12 +6,12 @@ import {ILaneConfig} from "./laneconfig";
 export class LaneService {
 
     lanesConfig : Array<ILaneConfig> = [
-        { Name: '', Title: 'BACKLOG', Limit: 0, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '' },
-        { Name: 'InProgress', Title: 'IN PROGRESS', Limit: 5, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: ''},
-        { Name: 'Next', Title: 'NEXT', Limit: 0, Sort: "[DueDate][Importance]", Restrict: "[Complete] = false", Owner: ''},
-        { Name: 'Focus', Title: 'FOCUS', Limit: 0, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '' },
-        { Name: 'Waiting', Title: 'WAITING', Limit: 0, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '' },
-        { Name: 'Completed', Title: 'COMPLETED', Limit: 0, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '' }
+        { Name: '', Title: 'BACKLOG', Limit: 0, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '', CanArchiveTask: true },
+        { Name: 'InProgress', Title: 'IN PROGRESS', Limit: 5, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '', CanArchiveTask: false },
+        { Name: 'Next', Title: 'NEXT', Limit: 0, Sort: "[DueDate][Importance]", Restrict: "[Complete] = false", Owner: '', CanArchiveTask: false},
+        { Name: 'Focus', Title: 'FOCUS', Limit: 0, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '', CanArchiveTask: false},
+        { Name: 'Waiting', Title: 'WAITING', Limit: 0, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '', CanArchiveTask: false},
+        { Name: 'Completed', Title: 'COMPLETED', Limit: 0, Sort: "[Importance]", Restrict: "[Complete] = false", Owner: '', CanArchiveTask: true}
     ];
 
     lanes : Array<Lane> = [];

@@ -7,9 +7,11 @@
     <footer class="text-right">
         <div *ngIf="(task.categories && task.categories.length)" class="pull-left small"><span class="glyphicon glyphicon-tag"></span> {{ task.categories }}</div>
         <span class="btn-group btn-group-xs">
-            <button class="btn btn-default btn-xs" aria-label="Edit" type="button" ng-click="editTask(task)"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
-            <button class="btn btn-default btn-xs" aria-label="Delete" type="button" ng-click="deleteTask(task)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-            <button ng-if="(task.oneNoteURL != '')"  class="btn btn-default btn-xs" aria-label="OneNote" type="button" ng-click="openOneNoteURL(task.oneNoteURL)"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></button>
+            <button *ngIf="isEditable" class="btn btn-default btn-xs" aria-label="Edit" type="button" (click)="editTask()"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+            <button *ngIf="isArchivable" class="btn btn-default btn-xs" aria-label="Archive" type="button" (click)="archiveTask()"><span class="glyphicon glyphicon-check" aria-hidden="true"></span></button>
+            <button *ngIf="isDeletable" class="btn btn-default btn-xs" aria-label="Delete" type="button" (click)="deleteTask()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+            <button *ngIf="(task.oneNoteURL != '')"  class="btn btn-default btn-xs" aria-label="OneNote" type="button" (click)="openOneNoteURL(task.oneNoteURL)"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></button>
         </span>
     </footer>
+
 </div>

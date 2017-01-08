@@ -10,6 +10,10 @@ export class TaskComponent  {
     @Input()
     task: Task;
 
+    @Input()
+    isArchivable: boolean = false;
+    isDeletable: boolean = true;
+    isEditable: boolean = true;
 
     constructor(private taskService:TaskService) {
 
@@ -42,8 +46,12 @@ export class TaskComponent  {
         this.taskService.editTask(this.task);
     }
 
-    deleteTask() {
+    archiveTask() {
+        this.taskService.archiveTask(this.task);
+    }
 
+    deleteTask() {
+        this.taskService.deleteTask(this.task);
     }
 
     openOneNoteURL(url:string){

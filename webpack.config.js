@@ -19,7 +19,7 @@ module.exports = {
             {
                 test: /\.ts$/,
                 loaders: ['awesome-typescript-loader', 'angular2-template-loader?keepUrl=true'],
-                exclude: [/\.(spec|e2e)\.ts$/]
+                exclude: [/\.(spec|e2e)\.ts$/, /node_modules/]
             },
             /* Embed files. */
             {

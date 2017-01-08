@@ -45,6 +45,10 @@ export class LaneComponent implements OnInit{
         this.updateTasks();
     }
 
+    addTask() {
+        this.taskService.addTask(this.lane);
+    }
+
     private updateTasks() {
         this.tasks = this.taskService.getTasks(this.lane);
         this.updateFilteredTasks();
@@ -62,5 +66,6 @@ export class LaneComponent implements OnInit{
             this.filteredTasks = this.tasks;
         }
     }
+
 
 }

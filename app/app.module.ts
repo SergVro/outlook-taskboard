@@ -9,9 +9,10 @@ import {TaskListComponent} from "./tasklist.component";
 import {TaskComponent} from "./task.component";
 import {LaneService} from "./lane.service";
 import {TaskService} from "./task.service";
+import {DragulaModule} from "ng2-dragula";
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule, DragulaModule ],
   declarations: [ AppComponent, FilterbarComponent, LaneComponent, TaskListComponent, TaskComponent ],
   bootstrap:    [ AppComponent ],
   providers: [LaneService, TaskService]

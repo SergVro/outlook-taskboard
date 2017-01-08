@@ -1,6 +1,6 @@
-<ul id="backlogList" ui-sortable="sortableOptions" class="panel-body tasklist list-unstyled">
+<ul class="panel-body tasklist list-unstyled" [dragula]='"bag-lane"' [attr.data-lanename]="currentLane.name">
     <!--<li *ngFor="let task of tasks | filter:search" class="task panel" ng-class=" { 'task-low' : task.priority === 0, 'task-medium' : task.priority === 1, 'task-high' : task.priority === 2, 'task-private': task.sensitivity === 2 }" ng-dblclick="editTask(task)">-->
-    <li *ngFor="let task of tasks" class="task panel">
-       <task [task]="task"></task>
+    <li *ngFor="let task of tasks" class="task panel" [attr.data-entryid]="task.entryID" >
+       <task [task]="task" [isArchivable]="currentLane.CanArchiveTask"></task>
     </li>
 </ul>

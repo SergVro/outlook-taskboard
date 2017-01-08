@@ -18,8 +18,7 @@ export class TaskListComponent implements OnInit{
     @HostBinding('class')
     classNames:string = 'panel-body tasklist list-unstyled';
 
-    constructor(private taskService: TaskService) {
-    }
+    constructor(private taskService: TaskService){ }
 
     ngOnInit(): void {
         if (this.tasks == null) {
