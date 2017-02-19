@@ -30,6 +30,16 @@ export class TaskService {
 
     getTasks(lane: Lane) {
 
+        // let t1 = new Task();
+        // t1.subject = lane.name + " task 1";
+        // t1.notes = "";
+        // let t2 = new Task();
+        // t2.subject = lane.name + " task 2";
+        // t2.notes = "";
+        // return [
+        //     t1, t2
+        // ];
+
         return this.getTasksFromOutlook(lane.name, lane.restrict, lane.sort, lane.owner);
     }
 
